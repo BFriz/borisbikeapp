@@ -6,9 +6,6 @@ describe DockingStation do
   let(:station) { DockingStation.new(:capacity => 20) }
 
   it "should be able to accept a bike" do
-    station = DockingStation.new
-    bike = Bike.new
-
     # we expect the station to have 0 bikes
     expect(station.bike_count).to eq 0
 
