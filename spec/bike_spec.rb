@@ -4,7 +4,7 @@ describe Bike do
   # this is a specific feature or behaviour
   #that we EXPECT to have
   let(:bike) {Bike.new }
-  it 'should not be borken when created' do
+  it 'should not be broken when created' do
     expect(bike.broken?).to be false
   end
   it "should be able to break" do
