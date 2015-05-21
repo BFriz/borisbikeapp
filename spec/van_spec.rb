@@ -18,10 +18,21 @@ let(:van) { Van.new(:capacity => 15) }
   end
   it "should know when it's full" do
     expect(van.full?).not_to be true
-    15.times { van.dock(Bike.new) }
+    15.times { van.dock(:bike) }
     expect(van.full?).to be true
   end
 
+  it "should not accept a bike if it's full" do 
+    15.times { van.dock(:bike)}
+    expect { van.dock(bike) }.to raise_error RuntimeError
+  end
+it "should provide the list of broken bikes" do
+  working_bike, broken_bike = Bike.new, Bike.new
+  working_bike.break
+  van.dock(working_bike)
+  van.dock(broken_bike)
+  expect(van.available_bikes).to eq([broken_bike])
+end
 
   
 end

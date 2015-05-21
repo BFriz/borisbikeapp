@@ -12,7 +12,7 @@ DEFAULT_CAPACITY = 5
   end
   def dock (bike)
 # # if the capacity is reached, raise an exception
-#     raise "Van is maxed out Y'all }" if full?
+    raise "Van is maxed out Y'all }" if full?
     @bikes << bike
   end
   def dropoff(bike)
@@ -21,5 +21,7 @@ DEFAULT_CAPACITY = 5
   def full?
     @bikes.count == @capacity
   end
-
+  def available_bikes
+    @bikes.reject {|bike| bike.working? }
+  end
 end
