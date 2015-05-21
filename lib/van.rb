@@ -1,10 +1,10 @@
 class Van
 
-# DEFAULT_CAPACITY = 0
+DEFAULT_CAPACITY = 5
 
   def initialize(options = {})
+    @capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
     @bikes = []
-    # @capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
   end
 
   def bike_count
@@ -15,8 +15,11 @@ class Van
 #     raise "Van is maxed out Y'all }" if full?
     @bikes << bike
   end
-#   def full?
-#     @bikes.count == @capacity
-#   end
+  def dropoff(bike)
+    @bikes.delete(bike)
+  end
+  def full?
+    @bikes.count == @capacity
+  end
 
 end
